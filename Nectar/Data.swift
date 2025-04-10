@@ -336,17 +336,7 @@ let groceryProductsJSON = """
 }
 """
 
-// MARK: - Example Model and JSON Decoding
 
-struct Product: Codable {
-    let id: String
-    let name: String
-    let productDescription: String
-    let price: Double
-    let imageName: String
-    let quantity: String
-    let category: String
-}
 
 // Example usage: Parsing the JSON string into a dictionary of Product objects.
 //if let jsonData = groceryProductsJSON.data(using: .utf8) {
