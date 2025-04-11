@@ -11,10 +11,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!
-    //@IBOutlet weak var contentView: UIView!
     @IBOutlet weak var bannerCollectionView: UICollectionView!
-    
-    //@IBOutlet weak var bannerView: UIView!
     @IBOutlet weak var exclusiveCollectionView: UICollectionView!
     @IBOutlet weak var bestSellingCollectionView: UICollectionView!
     @IBOutlet weak var groceriesCollectionView: UICollectionView!
@@ -30,6 +27,9 @@ class HomeViewController: UIViewController {
     var favorites: [Product] = []
     private var bannerImages: [String] = ["banner1", "banner1", "banner1"]
 
+    // This property will temporarily store the product that is tapped.
+    private var selectedProduct: Product?
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +75,6 @@ class HomeViewController: UIViewController {
             allProducts = Array(productsDict.values)
             
             // For demo purposes, split products into 3 sections.
-            // You could filter by category or any other property.
-            // need to change this
             exclusiveProducts = allProducts.filter { $0.category == "meat" }
             bestSellingProducts = allProducts.filter { $0.category == "beverages" }
             groceriesProducts = allProducts.filter { $0.category == "bakery" }
@@ -89,10 +87,19 @@ class HomeViewController: UIViewController {
             print("Error decoding JSON: \(error)")
         }
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowProductDetail" {
+            if let detailVC = segue.destination as? ProductDetailView,
+               let product = sender as? Product {
+                detailVC.product = product
+            }
+        }
+    }
 }
 
 // MARK: - UICollectionView Data Source & Delegate
-
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Number of Items
@@ -114,7 +121,6 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == bannerCollectionView {
             // Dequeue a banner cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath)
-            
             // Assuming the banner cell's content view has an image view as its first subview:
             if let imageView = cell.contentView.subviews.first as? UIImageView {
                 let imageName = bannerImages[indexPath.item]
@@ -135,7 +141,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             product = exclusiveProducts[indexPath.item]
         } else if collectionView == bestSellingCollectionView {
             product = bestSellingProducts[indexPath.item]
-        } else { // groceriesCollectionView
+        } else {
             product = groceriesProducts[indexPath.item]
         }
         
@@ -153,10 +159,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == bannerCollectionView {
-            // Return the banner's size as the collection view's bounds.
             return collectionView.bounds.size
         }
-        // Return fixed size for product cells.
         return CGSize(width: 140, height: 180)
     }
     
@@ -165,7 +169,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == bannerCollectionView {
-            return 0  // No spacing for banner cells
+            return 0
         }
         return 16
     }
@@ -181,18 +185,23 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     // MARK: - Cell Selection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Skip tapping banner cells
         if collectionView == bannerCollectionView {
             print("Tapped banner at index \(indexPath.item)")
-        } else {
-            let product: Product
-            if collectionView == exclusiveCollectionView {
-                product = exclusiveProducts[indexPath.item]
-            } else if collectionView == bestSellingCollectionView {
-                product = bestSellingProducts[indexPath.item]
-            } else {
-                product = groceriesProducts[indexPath.item]
-            }
-            print("Tapped on product: \(product.name)")
+            return
         }
+        
+        let product: Product
+        if collectionView == exclusiveCollectionView {
+            product = exclusiveProducts[indexPath.item]
+        } else if collectionView == bestSellingCollectionView {
+            product = bestSellingProducts[indexPath.item]
+        } else {
+            product = groceriesProducts[indexPath.item]
+        }
+        print("Tapped on product: \(product.name)")
+        // Save the selected product and perform the segue
+        selectedProduct = product
+        performSegue(withIdentifier: "ShowProductDetail", sender: product)
     }
 }

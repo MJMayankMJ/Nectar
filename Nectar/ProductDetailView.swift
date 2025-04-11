@@ -7,14 +7,18 @@
 
 import UIKit
 
+import UIKit
+
 class ProductDetailView: UIViewController {
-    // MARK: - IBOutlets
+    
+    // MARK: - IBOutlets (Connect these from your storyboard)
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productDescriptionLabel: UILabel!
+    @IBOutlet weak var unitLabel: UILabel! // this is litre ,kg ,etc
     
-    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel! //this is 1,2,3
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     
@@ -22,33 +26,34 @@ class ProductDetailView: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     
     // MARK: - Properties
-    var product: Product?   // Product passed from HomeViewController
+    var product: Product?   // This will be passed from HomeViewController
     private var currentQuantity: Int = 1
     
-    // MARK: - Lifecycle
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
-    // Configure the UI elements with product data
+    // Setup UI with product data
     private func configureUI() {
         guard let product = product else { return }
         
         productNameLabel.text = product.name
         productPriceLabel.text = String(format: "$%.2f", product.price)
         productDescriptionLabel.text = product.productDescription
+        unitLabel.text = product.quantity
         
-        // Load image from asset catalog (using product.imageName; you can change this if needed)
+        // Load product image from assets using product.imageName
         productImageView.image = UIImage(named: product.imageName)
         productImageView.contentMode = .scaleAspectFill
         productImageView.clipsToBounds = true
         
-        // Setup Quantity Label and Buttons
+        // Initialize quantity to 1
         currentQuantity = 1
         quantityLabel.text = "\(currentQuantity)"
         
-        // Set up favorite button initial state based on whether the product is already a favorite.
+        // Set favorite button's initial appearance based on favorite status
         updateFavoriteButtonUI()
     }
     
@@ -75,6 +80,7 @@ class ProductDetailView: UIViewController {
     
     @IBAction func addToBasketTapped(_ sender: UIButton) {
         guard let product = product else { return }
+        // Add product to cart with current quantity using CartManager
         CartManager.shared.addProduct(product, quantity: currentQuantity)
         print("Added \(product.name) to cart with quantity \(currentQuantity). Current cart count: \(CartManager.shared.cartItems.count)")
     }
@@ -86,10 +92,7 @@ class ProductDetailView: UIViewController {
         } else {
             FavoriteManager.shared.addFavorite(product)
         }
-        // Update the favorite button appearance
         updateFavoriteButtonUI()
         print("Favorites count: \(FavoriteManager.shared.favoriteItems.count)")
     }
-    
-    
 }
