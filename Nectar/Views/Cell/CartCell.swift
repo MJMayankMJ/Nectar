@@ -34,18 +34,21 @@ class CartCell: UITableViewCell {
     
     // Configure cell with a CartItem
     func configure(with item: CartItem) {
-        let product = item.product
-        nameLabel.text = product.name
-        priceLabel.text = String(format: "$%.2f", product.price)
-        quantityValueLabel.text = "\(item.product.quantity)"
-        
-        currentUserQuantity = item.quantity
-        
-        // Load an image from assets (or customize as needed)
-        productImageView.image = UIImage(named: product.imageName)
-        productImageView.contentMode = .scaleAspectFill
-        productImageView.clipsToBounds = true
-    }
+            let product = item.product
+            nameLabel.text = product.name
+            priceLabel.text = String(format: "$%.2f", product.price)
+            quantityValueLabel.text = "\(product.quantity)"
+            currentUserQuantity = item.quantity
+            
+            let placeholder = UIImage(named: "bakery")
+            
+            if let urlString = imageURLs[product.imageName],
+               let url = URL(string: urlString) {
+                productImageView.kf.setImage(with: url, placeholder: placeholder)
+            } else {
+                productImageView.image = placeholder
+            }
+        }
     
     // MARK: - IBActions
     @IBAction func minusButtonTapped(_ sender: UIButton) {

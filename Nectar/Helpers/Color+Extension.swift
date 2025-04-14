@@ -7,6 +7,8 @@
 
 import UIKit
 
+// was just trying some things without storyboard
+
 extension UIColor {
     static let primary = UIColor(red: 0.33, green: 0.69, blue: 0.46, alpha: 1.00)
     static let description = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 0.7)

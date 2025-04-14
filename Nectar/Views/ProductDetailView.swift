@@ -7,8 +7,6 @@
 
 import UIKit
 
-import UIKit
-
 class ProductDetailView: UIViewController {
     
     // MARK: - IBOutlets (Connect these from your storyboard)
@@ -34,28 +32,46 @@ class ProductDetailView: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
+
     
-    // Setup UI with product data
     private func configureUI() {
-        guard let product = product else { return }
-        
-        productNameLabel.text = product.name
-        productPriceLabel.text = String(format: "$%.2f", product.price)
-        productDescriptionLabel.text = product.productDescription
-        unitLabel.text = product.quantity
-        
-        // Load product image from assets using product.imageName
-        productImageView.image = UIImage(named: product.imageName)
-        productImageView.contentMode = .scaleAspectFill
-        productImageView.clipsToBounds = true
-        
-        // Initialize quantity to 1
-        currentQuantity = 1
-        quantityLabel.text = "\(currentQuantity)"
-        
-        // Set favorite button's initial appearance based on favorite status
-        updateFavoriteButtonUI()
-    }
+            guard let product = product else { return }
+            
+            productNameLabel.text = product.name
+            productPriceLabel.text = String(format: "$%.2f", product.price)
+            productDescriptionLabel.text = product.productDescription
+            unitLabel.text = product.quantity
+            
+            // Use Kingfisher to load the image from URL:
+            let placeholder = UIImage(named: "bakery")
+            
+            if let urlString = imageURLs[product.imageName],
+               let url = URL(string: urlString) {
+                productImageView.kf.setImage(with: url, placeholder: placeholder, options: nil) { result in
+                    switch result {
+                    case .success(let value):
+                        print("Kingfisher Debug: Successfully loaded image for product \(product.name) from \(urlString). Source: \(value.source)")
+                    case .failure(let error):
+                        print("Kingfisher Debug: Failed to load image for product \(product.name). Error: \(error.localizedDescription)")
+                        // Set the fallback image if the download fails
+                        self.productImageView.image = placeholder
+                    }
+                }
+            } else {
+                print("Kingfisher Debug: URL not found for image key: \(product.imageName). Using placeholder.")
+                productImageView.image = placeholder
+            }
+            
+            productImageView.contentMode = .scaleAspectFill
+            productImageView.clipsToBounds = true
+            
+            // Initialize quantity to 1
+            currentQuantity = 1
+            quantityLabel.text = "\(currentQuantity)"
+            
+            // Set favorite button's initial appearance based on favorite status
+            updateFavoriteButtonUI()
+        }
     
     private func updateFavoriteButtonUI() {
         guard let product = product else { return }

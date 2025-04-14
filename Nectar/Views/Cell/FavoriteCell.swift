@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FavoriteCell: UITableViewCell {
 
@@ -21,15 +22,20 @@ class FavoriteCell: UITableViewCell {
     
     // Configure the cell with a FavoriteItem
     func configure(with fav: FavoriteItem) {
-        let product = fav.product
-        nameLabel.text = product.name
-        priceLabel.text = String(format: "$%.2f", product.price)
-        unitLabel.text = product.quantity        
-        // Set the image (adjust as needed)
-        productImageView.image = UIImage(named: product.imageName)
-        productImageView.contentMode = .scaleAspectFill
-        productImageView.clipsToBounds = true
-    }
+            let product = fav.product
+            nameLabel.text = product.name
+            priceLabel.text = String(format: "$%.2f", product.price)
+            unitLabel.text = product.quantity
+            
+            let placeholder = UIImage(named: "bakery")
+            
+            if let urlString = imageURLs[product.imageName],
+               let url = URL(string: urlString) {
+                productImageView.kf.setImage(with: url, placeholder: placeholder)
+            } else {
+                productImageView.image = placeholder
+            }
+        }
     
     // MARK: - IBActions
 //    @IBAction func removeButtonTapped(_ sender: UIButton) {
