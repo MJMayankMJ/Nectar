@@ -11,9 +11,8 @@ class FavoritesViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addAllToCartButton: UIButton!  // Button at the bottom
+    @IBOutlet weak var addAllToCartButton: UIButton!
     
-    // Data source from the FavoriteManager singleton
     var favoriteItems: [FavoriteItem] {
         return FavoriteManager.shared.favoriteItems
     }
@@ -25,6 +24,12 @@ class FavoritesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     
     // MARK: - Actions
     @IBAction func addAllToCartTapped(_ sender: UIButton) {
@@ -55,12 +60,17 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         let favItem = favoriteItems[indexPath.row]
         cell.configure(with: favItem)
         
-        // Remove action when cross tapped
-        cell.onRemoveTapped = { [weak self] in
-            FavoriteManager.shared.removeFavorite(favItem.product)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
+        // will add remove if needed .... abhi soch rha hui mei
+//        // Remove action when cross tapped
+//        cell.onRemoveTapped = { [weak self] in
+//            FavoriteManager.shared.removeFavorite(favItem.product)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return UIScreen.main.bounds.height / 6
+        }
 }

@@ -14,18 +14,17 @@ class FavoriteCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!      // This shows the "quantity" (unit) from the Product, e.g. "liter"
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var removeButton: UIButton!    // A cross button to remove favorite
+    //@IBOutlet weak var removeButton: UIButton!    // maybe will add in future
     
-    // Closure callback for remove action
-    var onRemoveTapped: (() -> Void)?
+    //thinking if should add it or not
+    //var onRemoveTapped: (() -> Void)?
     
     // Configure the cell with a FavoriteItem
     func configure(with fav: FavoriteItem) {
         let product = fav.product
         nameLabel.text = product.name
         priceLabel.text = String(format: "$%.2f", product.price)
-        unitLabel.text = product.quantity   // Display the fixed unit from the product
-        
+        unitLabel.text = product.quantity        
         // Set the image (adjust as needed)
         productImageView.image = UIImage(named: product.imageName)
         productImageView.contentMode = .scaleAspectFill
@@ -33,7 +32,7 @@ class FavoriteCell: UITableViewCell {
     }
     
     // MARK: - IBActions
-    @IBAction func removeButtonTapped(_ sender: UIButton) {
-        onRemoveTapped?()
-    }
+//    @IBAction func removeButtonTapped(_ sender: UIButton) {
+//        onRemoveTapped?()
+//    }
 }
