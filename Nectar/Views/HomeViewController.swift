@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     var favorites: [Product] = []
     private var bannerImages: [String] = ["banner1", "banner1", "banner1"]
 
-    // This property will temporarily store the product that is tapped.
+    // temporarily store the product that is tapped.
     private var selectedProduct: Product?
     
     // MARK: - View Lifecycle
@@ -204,4 +204,16 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         selectedProduct = product
         performSegue(withIdentifier: "ShowProductDetail", sender: product)
     }
+    
+    // for spacing on the left and right of collection view (after scroll)
+    func collectionView(_ collectionView: UICollectionView,
+                            layout collectionViewLayout: UICollectionViewLayout,
+                            insetForSectionAt section: Int) -> UIEdgeInsets {
+            if collectionView == bannerCollectionView {
+                return .zero
+            } else {
+                return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+            }
+        }
 }
+
