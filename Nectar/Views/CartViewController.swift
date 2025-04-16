@@ -94,6 +94,7 @@ class CartViewController: UIViewController {
                     exploreButton.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
                     exploreButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20)
                 ])
+                checkoutButton.isHidden = true
                 
                 emptyStateView = emptyView
             }
@@ -104,6 +105,8 @@ class CartViewController: UIViewController {
             tableView.backgroundView = nil
             tableView.separatorStyle = .singleLine
             emptyStateView = nil
+            
+            checkoutButton.isHidden = false
         }
     }
     
