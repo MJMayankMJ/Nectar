@@ -15,6 +15,7 @@ class CategoryProductsViewController: UIViewController {
     //  category passed from ExploreViewController
     var selectedCategory: String?
     private var products: [Product] = []
+    var isSortAscending: Bool = true
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -30,6 +31,23 @@ class CategoryProductsViewController: UIViewController {
         
         loadProducts()
     }
+    
+    @IBAction func sortByPriceTapped(_ sender: UIBarItem) {
+        if isSortAscending {
+            // Sort products in ascending order
+            products.sort { $0.price < $1.price }
+        } else {
+            // Sort products in descending order
+            products.sort { $0.price > $1.price }
+        }
+        
+        // Toggle the sort order for the next tap
+        isSortAscending.toggle()
+        
+        // Reload the collection view to display the sorted products
+        collectionView.reloadData()
+    }
+
     
     // MARK: - Data Loading
     private func loadProducts() {
@@ -88,4 +106,42 @@ extension CategoryProductsViewController: UICollectionViewDataSource, UICollecti
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Get the selected product from the filtered array
+        let product = products[indexPath.item]
+        
+        // Instantiate the ProductDetailView controller from the storyboard.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailView {
+            // Pass the selected product to the detail view controller.
+            detailVC.product = product
+            
+            // Navigate to the ProductDetailView
+            navigationController?.pushViewController(detailVC, animated: true)
+        } else {
+            print("ProductDetailView could not be instantiated. Check the Storyboard ID.")
+        }
+    }
 }
+
+//MARK: - to go to detail view
+//extension CategoryProductsViewController: UICollectionViewDelegate {
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        // Get the selected product from the filtered array
+//        let product = products[indexPath.item]
+//        
+//        // Instantiate the ProductDetailView controller from the storyboard.
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let detailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailView") as? ProductDetailView {
+//            // Pass the selected product to the detail view controller.
+//            detailVC.product = product
+//            
+//            // Navigate to the ProductDetailView
+//            navigationController?.pushViewController(detailVC, animated: true)
+//        } else {
+//            print("ProductDetailView could not be instantiated. Check the Storyboard ID.")
+//        }
+//    }
+//}
+

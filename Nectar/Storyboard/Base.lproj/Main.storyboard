@@ -253,7 +253,7 @@
         <!--Product Detail View-->
         <scene sceneID="6xs-5y-tnP">
             <objects>
-                <viewController id="Geh-pg-WTU" customClass="ProductDetailView" customModule="Nectar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailView" hidesBottomBarWhenPushed="YES" id="Geh-pg-WTU" customClass="ProductDetailView" customModule="Nectar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IBn-wT-yn8">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,7 +359,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaQ-iZ-5Hy">
-                                <rect key="frame" x="20" y="759" width="400" height="60"/>
+                                <rect key="frame" x="20" y="808" width="400" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zaQ-iZ-5Hy" secondAttribute="height" multiplier="20:3" id="ANM-yi-AD9"/>
                                 </constraints>
@@ -461,7 +461,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekN-Xd-SSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-195" y="800"/>
+            <point key="canvasLocation" x="250" y="801"/>
         </scene>
         <!--My Cart-->
         <scene sceneID="LdN-N5-VE3">
@@ -881,13 +881,13 @@
         <!--Products-->
         <scene sceneID="hSr-z9-zDh">
             <objects>
-                <viewController storyboardIdentifier="CategoryProductsViewController" id="0gk-bB-50w" customClass="CategoryProductsViewController" customModule="Nectar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryProductsViewController" hidesBottomBarWhenPushed="YES" id="0gk-bB-50w" customClass="CategoryProductsViewController" customModule="Nectar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VLU-nZ-AzE">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tbf-BY-aaJ">
-                                <rect key="frame" x="20" y="168" width="400" height="671"/>
+                                <rect key="frame" x="20" y="168" width="400" height="720"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d7s-Ud-CSw">
                                     <size key="itemSize" width="128" height="128"/>
@@ -908,7 +908,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Products" id="goc-wN-5fh">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.3" catalog="system" id="eap-hb-T45"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="slider.horizontal.3" catalog="system" id="eap-hb-T45">
+                            <connections>
+                                <action selector="sortByPriceTapped:" destination="0gk-bB-50w" id="BGt-AV-SiM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Tbf-BY-aaJ" id="tbW-UU-3Nb"/>
@@ -973,10 +977,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
