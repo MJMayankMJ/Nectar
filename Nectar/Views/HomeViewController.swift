@@ -161,7 +161,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == bannerCollectionView {
             return collectionView.bounds.size
         }
-        return CGSize(width: 140, height: 180)
+        return CGSize(width: 140, height: 220)
     }
     
     // MARK: - Spacing

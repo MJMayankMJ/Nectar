@@ -112,6 +112,7 @@ class CheckoutBottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set a semi-transparent dark background for the overlay effect
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         setupSubviews()
@@ -172,7 +173,7 @@ class CheckoutBottomSheetViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // animate container view from bottom
+        // Animate container view from the bottom
         containerView.transform = CGAffineTransform(translationX: 0, y: containerView.frame.height)
         UIView.animate(withDuration: 0.3) {
             self.containerView.transform = .identity
@@ -185,11 +186,19 @@ class CheckoutBottomSheetViewController: UIViewController {
     
     @objc private func placeOrderTapped() {
         print("Place Order tapped")
+        // Clear the cart
         CartManager.shared.cartItems.removeAll()
-        dismiss(animated: true, completion: nil)
+        // Instead of dismissing only this bottom sheet, present OrderAcceptedViewController as a full screen modal
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let orderAcceptedVC = storyboard.instantiateViewController(withIdentifier: "OrderAcceptedViewController") as? OrderAcceptedViewController {
+            // Set modalPresentationStyle to full screen so no nav or tab bars show
+            orderAcceptedVC.modalPresentationStyle = .fullScreen
+            // Present the order accepted screen
+            present(orderAcceptedVC, animated: true, completion: nil)
+        }
     }
     
-    // updating the total amount label using CartManager data
+    // Updating the total amount label using CartManager data
     private func updateTotalAmount() {
         let total = CartManager.shared.cartItems.reduce(0.0) { result, item in
             result + (item.product.price * Double(item.quantity))

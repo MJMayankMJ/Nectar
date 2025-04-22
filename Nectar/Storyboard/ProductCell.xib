@@ -37,17 +37,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52T-ze-bC7" userLabel="bView">
                         <rect key="frame" x="0.0" y="164.33333333333334" width="160" height="85.666666666666657"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="jap-34-QV8">
-                                <rect key="frame" x="5" y="20.666666666666661" width="150" height="44.333333333333343"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jap-34-QV8">
+                                <rect key="frame" x="5" y="25.666666666666661" width="150" height="34.333333333333343"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xve-Rh-0EU">
-                                        <rect key="frame" x="0.0" y="0.0" width="38.666666666666664" height="44.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xve-Rh-0EU">
+                                        <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="34.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ick-9K-jq9">
-                                        <rect key="frame" x="83.666666666666686" y="0.0" width="66.333333333333314" height="44.333333333333336"/>
+                                        <rect key="frame" x="98.666666666666671" y="0.0" width="51.333333333333329" height="34.333333333333336"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ick-9K-jq9" secondAttribute="height" multiplier="3:2" id="fEi-tt-Xzp"/>
                                         </constraints>

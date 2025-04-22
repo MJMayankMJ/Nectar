@@ -15,7 +15,7 @@ let groceryProductsJSON = """
     "productDescription": "Fresh and lean chicken breast perfect for grilling, roasting, or stir-frying meals at home.",
     "price": 7.99,
     "imageName": "chicken_breast",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "meat"
   },
   "550e8400-e29b-41d4-a716-446655440002": {
@@ -24,7 +24,7 @@ let groceryProductsJSON = """
     "productDescription": "Premium beef steak with excellent marbling, ideal for a hearty dinner or special occasion.",
     "price": 14.99,
     "imageName": "beef_steak",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "meat"
   },
   "550e8400-e29b-41d4-a716-446655440003": {
@@ -33,7 +33,7 @@ let groceryProductsJSON = """
     "productDescription": "Juicy pork chops that are tender and flavorful, great for quick and easy weeknight dinners.",
     "price": 9.49,
     "imageName": "pork_chops",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "meat"
   },
   "550e8400-e29b-41d4-a716-446655440004": {
@@ -42,7 +42,7 @@ let groceryProductsJSON = """
     "productDescription": "Delicious lamb rack with a rich, savory taste, perfect for roasting and family meals.",
     "price": 19.99,
     "imageName": "lamb_rack",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "meat"
   },
   "550e8400-e29b-41d4-a716-446655440005": {
@@ -51,7 +51,7 @@ let groceryProductsJSON = """
     "productDescription": "Succulent turkey legs that are slowly roasted for a tender and juicy flavor profile.",
     "price": 8.99,
     "imageName": "turkey_legs",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "meat"
   },
   "550e8400-e29b-41d4-a716-446655440006": {
@@ -60,7 +60,7 @@ let groceryProductsJSON = """
     "productDescription": "Mild and flaky fish fillet ideal for pan-frying or baking with a light seasoning.",
     "price": 11.99,
     "imageName": "fish_fillet",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "meat"
   },
   "550e8400-e29b-41d4-a716-446655440007": {
@@ -69,7 +69,7 @@ let groceryProductsJSON = """
     "productDescription": "Freshly squeezed orange juice with a tangy and refreshing taste to start your day.",
     "price": 3.49,
     "imageName": "orange_juice",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "beverages"
   },
   "550e8400-e29b-41d4-a716-446655440008": {
@@ -78,7 +78,7 @@ let groceryProductsJSON = """
     "productDescription": "Crisp apple cider with a natural sweetness that pairs well with a variety of meals.",
     "price": 4.29,
     "imageName": "apple_cider",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "beverages"
   },
   "550e8400-e29b-41d4-a716-446655440009": {
@@ -87,7 +87,7 @@ let groceryProductsJSON = """
     "productDescription": "Refreshing sparkling water that is lightly carbonated, ideal for hydration any time.",
     "price": 1.99,
     "imageName": "sparkling_water",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "beverages"
   },
   "550e8400-e29b-41d4-a716-446655440010": {
@@ -96,7 +96,7 @@ let groceryProductsJSON = """
     "productDescription": "Cool and invigorating iced tea with a subtle blend of natural flavors and no added sugar.",
     "price": 2.49,
     "imageName": "iced_tea",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "beverages"
   },
   "550e8400-e29b-41d4-a716-446655440011": {
@@ -105,7 +105,7 @@ let groceryProductsJSON = """
     "productDescription": "Rich and aromatic ground coffee that delivers a robust flavor for your morning brew.",
     "price": 5.99,
     "imageName": "coffee",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "beverages"
   },
   "550e8400-e29b-41d4-a716-446655440012": {
@@ -114,7 +114,7 @@ let groceryProductsJSON = """
     "productDescription": "Organic green tea leaves offering a delicate, refreshing flavor and natural antioxidants.",
     "price": 4.99,
     "imageName": "green_tea",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "beverages"
   },
   "550e8400-e29b-41d4-a716-446655440013": {
@@ -123,7 +123,7 @@ let groceryProductsJSON = """
     "productDescription": "Freshly baked whole wheat bread that is soft inside with a hearty, nutty crust.",
     "price": 2.99,
     "imageName": "whole_wheat_bread",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "bakery"
   },
   "550e8400-e29b-41d4-a716-446655440014": {
@@ -132,7 +132,7 @@ let groceryProductsJSON = """
     "productDescription": "Flaky and buttery croissant with a golden exterior, perfect for a light breakfast.",
     "price": 1.49,
     "imageName": "croissant",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "bakery"
   },
   "550e8400-e29b-41d4-a716-446655440015": {
@@ -141,7 +141,7 @@ let groceryProductsJSON = """
     "productDescription": "Chewy and dense bagel ideal for toasting and pairing with your favorite spreads.",
     "price": 0.99,
     "imageName": "bagel",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "bakery"
   },
   "550e8400-e29b-41d4-a716-446655440016": {
@@ -150,7 +150,7 @@ let groceryProductsJSON = """
     "productDescription": "Soft and moist muffin available in a variety of flavors to brighten up your morning.",
     "price": 1.79,
     "imageName": "muffin",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "bakery"
   },
   "550e8400-e29b-41d4-a716-446655440017": {
@@ -159,7 +159,7 @@ let groceryProductsJSON = """
     "productDescription": "Sweet and soft donut with a light glaze finish, making it a delightful treat any time.",
     "price": 0.89,
     "imageName": "donut",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "bakery"
   },
   "550e8400-e29b-41d4-a716-446655440018": {
@@ -168,7 +168,7 @@ let groceryProductsJSON = """
     "productDescription": "Crisp on the outside and soft on the inside, this traditional baguette is perfect for sandwiches.",
     "price": 1.99,
     "imageName": "baguette",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "bakery"
   },
   "550e8400-e29b-41d4-a716-446655440019": {
@@ -177,7 +177,7 @@ let groceryProductsJSON = """
     "productDescription": "Crisp and juicy apples with a natural sweetness, ideal for snacking and baking.",
     "price": 3.49,
     "imageName": "fresh_apples",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "fruit and veg"
   },
   "550e8400-e29b-41d4-a716-446655440020": {
@@ -186,7 +186,7 @@ let groceryProductsJSON = """
     "productDescription": "Ripe bananas with a creamy texture and rich flavor, perfect for smoothies or a quick snack.",
     "price": 2.29,
     "imageName": "bananas",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "fruit and veg"
   },
   "550e8400-e29b-41d4-a716-446655440021": {
@@ -195,7 +195,7 @@ let groceryProductsJSON = """
     "productDescription": "Crunchy and naturally sweet carrots, excellent for salads, stews, or as a healthy snack.",
     "price": 1.99,
     "imageName": "carrots",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "fruit and veg"
   },
   "550e8400-e29b-41d4-a716-446655440022": {
@@ -204,7 +204,7 @@ let groceryProductsJSON = """
     "productDescription": "Fresh broccoli florets full of vitamins and minerals, ideal for steaming or stir-frying.",
     "price": 2.79,
     "imageName": "broccoli",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "fruit and veg"
   },
   "550e8400-e29b-41d4-a716-446655440023": {
@@ -213,7 +213,7 @@ let groceryProductsJSON = """
     "productDescription": "Tender spinach leaves packed with nutrients, great for salads, smoothies, or cooking.",
     "price": 2.49,
     "imageName": "spinach",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "fruit and veg"
   },
   "550e8400-e29b-41d4-a716-446655440024": {
@@ -222,7 +222,7 @@ let groceryProductsJSON = """
     "productDescription": "Vibrant and ripe tomatoes that add a burst of flavor to any salad or sauce.",
     "price": 2.99,
     "imageName": "tomatoes",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "fruit and veg"
   },
   "550e8400-e29b-41d4-a716-446655440025": {
@@ -231,7 +231,7 @@ let groceryProductsJSON = """
     "productDescription": "Fresh organic milk sourced from grass-fed cows, offering a rich and creamy taste.",
     "price": 3.99,
     "imageName": "organic_milk",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "dairy eggs"
   },
   "550e8400-e29b-41d4-a716-446655440026": {
@@ -240,7 +240,7 @@ let groceryProductsJSON = """
     "productDescription": "Aged cheddar cheese with a sharp, tangy flavor perfect for sandwiches and snacks.",
     "price": 5.49,
     "imageName": "cheddar_cheese",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "dairy eggs"
   },
   "550e8400-e29b-41d4-a716-446655440027": {
@@ -249,7 +249,7 @@ let groceryProductsJSON = """
     "productDescription": "Creamy Greek yogurt rich in protein, ideal for breakfast, smoothies, or a healthy dessert.",
     "price": 4.49,
     "imageName": "greek_yogurt",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "dairy eggs"
   },
   "550e8400-e29b-41d4-a716-446655440028": {
@@ -258,7 +258,7 @@ let groceryProductsJSON = """
     "productDescription": "Farm-fresh eggs with a bright yolk and firm white, suitable for any meal or recipe.",
     "price": 2.99,
     "imageName": "eggs",
-    "quantity": "pieces",
+    "quantity": "1 piece",
     "category": "dairy eggs"
   },
   "550e8400-e29b-41d4-a716-446655440029": {
@@ -267,7 +267,7 @@ let groceryProductsJSON = """
     "productDescription": "Rich and creamy butter made from fresh cream, perfect for baking and spreading on toast.",
     "price": 3.49,
     "imageName": "butter",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "dairy eggs"
   },
   "550e8400-e29b-41d4-a716-446655440030": {
@@ -276,7 +276,7 @@ let groceryProductsJSON = """
     "productDescription": "Soft and mild cottage cheese ideal for snacking, mixing with fruits, or as a salad topping.",
     "price": 4.19,
     "imageName": "cottage_cheese",
-    "quantity": "kg",
+    "quantity": "2 KG",
     "category": "dairy eggs"
   },
   "550e8400-e29b-41d4-a716-446655440031": {
@@ -285,7 +285,7 @@ let groceryProductsJSON = """
     "productDescription": "Extra virgin olive oil with a robust, fruity flavor perfect for dressings and cooking.",
     "price": 6.99,
     "imageName": "olive_oil",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "oils"
   },
   "550e8400-e29b-41d4-a716-446655440032": {
@@ -294,7 +294,7 @@ let groceryProductsJSON = """
     "productDescription": "Light and versatile sunflower oil ideal for frying, baking, and salad dressings.",
     "price": 4.99,
     "imageName": "sunflower_oil",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "oils"
   },
   "550e8400-e29b-41d4-a716-446655440033": {
@@ -303,7 +303,7 @@ let groceryProductsJSON = """
     "productDescription": "Pure coconut oil with a subtle tropical aroma, excellent for cooking and skin care.",
     "price": 7.49,
     "imageName": "coconut_oil",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "oils"
   },
   "550e8400-e29b-41d4-a716-446655440034": {
@@ -312,7 +312,7 @@ let groceryProductsJSON = """
     "productDescription": "Heart-healthy canola oil that is light in taste and perfect for everyday cooking.",
     "price": 5.49,
     "imageName": "canola_oil",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "oils"
   },
   "550e8400-e29b-41d4-a716-446655440035": {
@@ -321,7 +321,7 @@ let groceryProductsJSON = """
     "productDescription": "Flavorful sesame oil that adds a nutty aroma and taste to stir-fries and dressings.",
     "price": 6.49,
     "imageName": "sesame_oil",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "oils"
   },
   "550e8400-e29b-41d4-a716-446655440036": {
@@ -330,7 +330,7 @@ let groceryProductsJSON = """
     "productDescription": "Mild peanut oil that is great for deep-frying and cooking with a subtle, nutty flavor.",
     "price": 5.99,
     "imageName": "peanut_oil",
-    "quantity": "liter",
+    "quantity": "1 liter",
     "category": "oils"
   }
 }
