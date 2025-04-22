@@ -31,6 +31,10 @@ class ProductDetailView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        
+        productImageView.clipsToBounds = true
+        productImageView.layer.cornerRadius = 20  // Adjust as needed
+        productImageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 
     

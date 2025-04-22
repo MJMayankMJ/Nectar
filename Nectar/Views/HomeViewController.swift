@@ -33,7 +33,8 @@ class HomeViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Home"
+        
+        setupCarrotTitleView()
         
         // Register the custom cell (ProductCell.xib)
         let nib = UINib(nibName: "ProductCell", bundle: nil)
@@ -65,6 +66,30 @@ class HomeViewController: UIViewController {
         
         loadProducts()
     }
+    
+    private func setupCarrotTitleView() {
+        // 1. Disable large titles
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
+        
+        // 2. Load carrot image
+        guard let img = UIImage(named: "Logo")?.withRenderingMode(.alwaysOriginal) else {
+            print("⚠️ ‘carrot’ asset not found")
+            return
+        }
+        // 3. Create and size the imageView
+        let iv = UIImageView(image: img)
+        iv.contentMode = .scaleAspectFit
+        iv.frame = CGRect(x: 0, y: 0, width: 28, height: 28)
+        
+        // 4. Assign it
+        navigationItem.titleView = iv
+        print("✅ titleView set to carrot")
+        print("✅ titleView frame:", navigationItem.titleView?.frame as Any)
+    }
+
+
+
     
     // MARK: - Data Loading
     private func loadProducts() {
