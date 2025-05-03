@@ -32,6 +32,8 @@ class ProductCell: UICollectionViewCell {
         layer.borderColor = UIColor.lightGray.cgColor
     }
     
+    
+    
     // MARK: - Configuration
     func configure(with product: Product) {
         self.product = product
@@ -72,5 +74,7 @@ class ProductCell: UICollectionViewCell {
             print("Added \(product.name) to cart. Current cart count: \(CartManager.shared.cartItems.count)")
             // Call the closure if additional behavior is needed
             onAddTapped?()
+        
+            NotificationCenter.default.post(name: .cartUpdated, object: nil)
         }
 }

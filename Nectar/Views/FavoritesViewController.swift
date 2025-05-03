@@ -46,12 +46,37 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     // IBAction for the Explore button from the empty state view.
+//    @IBAction func exploreButtonTapped(_ sender: UIButton) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let exploreVC = storyboard.instantiateViewController(withIdentifier: "ExploreViewController") as? ExploreViewController {
+//            navigationController?.pushViewController(exploreVC, animated: true)
+//        }
+//    }
     @IBAction func exploreButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let exploreVC = storyboard.instantiateViewController(withIdentifier: "ExploreViewController") as? ExploreViewController {
-            navigationController?.pushViewController(exploreVC, animated: true)
+            // Switch to the Explore tab (4th tab, index 3) with a cross-fade animation
+            guard
+                let tabBar = self.tabBarController,
+                let viewControllers = tabBar.viewControllers,
+                viewControllers.count > 3,
+                let fromView = self.view,
+                let toNav = viewControllers[3] as? UINavigationController
+            else { return }
+            
+            // Ensure Explore nav stack is at root without animation
+            toNav.popToRootViewController(animated: false)
+            let toView = toNav.view!
+            
+            // Animate transition between current and Explore view
+            UIView.transition(
+                from: fromView,
+                to: toView,
+                duration: 0.3,
+                options: [.transitionCrossDissolve, .showHideTransitionViews]
+            ) { _ in
+                // Finally update the selected tab index
+                tabBar.selectedIndex = 3
+            }
         }
-    }
     
     // MARK: - Helper Methods
     private func updateEmptyState() {

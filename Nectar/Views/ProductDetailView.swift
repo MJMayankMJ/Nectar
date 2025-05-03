@@ -35,9 +35,8 @@ class ProductDetailView: UIViewController {
         productImageView.clipsToBounds = true
         productImageView.layer.cornerRadius = 20  // Adjust as needed
         productImageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
     }
-
-    
     private func configureUI() {
             guard let product = product else { return }
             
@@ -103,6 +102,8 @@ class ProductDetailView: UIViewController {
         // Add product to cart with current quantity using CartManager
         CartManager.shared.addProduct(product, quantity: currentQuantity)
         print("Added \(product.name) to cart with quantity \(currentQuantity). Current cart count: \(CartManager.shared.cartItems.count)")
+        
+        NotificationCenter.default.post(name: .cartUpdated, object: nil)
     }
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {

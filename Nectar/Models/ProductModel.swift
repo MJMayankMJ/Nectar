@@ -31,18 +31,57 @@ struct FavoriteItem {
 
 // MARK: - Managers
 
+//class CartManager {
+//    static let shared = CartManager()
+//    var cartItems: [CartItem] = []
+//    
+//    private init() {}
+//    
+//    func addProduct(_ product: Product, quantity: Int) {
+//        // Simple approach: add new item regardless of duplicates.
+//        let newItem = CartItem(product: product, quantity: quantity)
+//        cartItems.append(newItem)
+//    }
+//}
+
+//MARK: - to update cart badge
+extension Notification.Name {
+    static let cartUpdated = Notification.Name("cartUpdated")
+}
+
 class CartManager {
     static let shared = CartManager()
-    var cartItems: [CartItem] = []
-    
     private init() {}
     
+   var cartItems: [CartItem] = [] {
+        didSet {
+            NotificationCenter.default.post(name: .cartUpdated, object: nil)
+        }
+    }
+    
     func addProduct(_ product: Product, quantity: Int) {
-        // Simple approach: add new item regardless of duplicates.
-        let newItem = CartItem(product: product, quantity: quantity)
-        cartItems.append(newItem)
+        if let idx = cartItems.firstIndex(where: { $0.product.id == product.id }) {
+            cartItems[idx].quantity += quantity
+        } else {
+            cartItems.append(CartItem(product: product, quantity: quantity))
+        }
+    }
+    
+    func updateQuantity(for product: Product, to newQuantity: Int) {
+        guard let idx = cartItems.firstIndex(where: { $0.product.id == product.id }) else { return }
+        cartItems[idx].quantity = newQuantity
+    }
+    
+    func removeProduct(_ product: Product) {
+        cartItems.removeAll { $0.product.id == product.id }
+    }
+    
+    func clearCart() {
+        cartItems.removeAll()
     }
 }
+
+
 
 class FavoriteManager {
     static let shared = FavoriteManager()

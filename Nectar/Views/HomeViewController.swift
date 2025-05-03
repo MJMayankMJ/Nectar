@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
         setupBannerPageControl()
         startBannerAutoScroll()
         loadProducts()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

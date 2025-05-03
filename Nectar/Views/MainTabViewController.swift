@@ -7,23 +7,33 @@
 
 import UIKit
 
-class MainTabViewController: UIViewController {
+// this file cz i wasnt able to update badge globally unitll i click on this so..... maybe there was a way without this but i am tired rn
+class MainTabBarController: UITabBarController {
+
+    private let cartTabIndex = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Observe cart changes
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
+        // Initial badge
+        updateCartBadge()
     }
-    
 
-    /*
-    // MARK: - Navigation
+    @objc private func updateCartBadge() {
+        let totalCount = CartManager.shared.cartItems.reduce(0) { $0 + $1.quantity }
+        guard let items = tabBar.items, items.count > cartTabIndex else { return }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let cartItem = items[cartTabIndex]
+        cartItem.badgeValue = totalCount > 0 ? "\(totalCount)" : nil
     }
-    */
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

@@ -31,6 +31,7 @@
 		6DEDD0A72DB8D7FC0092E9A7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDD08D2DB8D7FC0092E9A7 /* Data.swift */; };
 		6DEDD0A82DB8D7FC0092E9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEDD08F2DB8D7FC0092E9A7 /* SceneDelegate.swift */; };
 		861641372D9C8B8E00B4AE38 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 861641362D9C8B8E00B4AE38 /* Kingfisher */; };
+		863CB2522DC62A4A00D1A8E2 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863CB2512DC62A4A00D1A8E2 /* MainTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		6DEDD08D2DB8D7FC0092E9A7 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6DEDD08E2DB8D7FC0092E9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DEDD08F2DB8D7FC0092E9A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		863CB2512DC62A4A00D1A8E2 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		86F4803E2D9BFEA900A5AE84 /* Nectar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nectar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,6 +126,7 @@
 				6DEDD0872DB8D7FC0092E9A7 /* HomeViewController.swift */,
 				6DEDD0882DB8D7FC0092E9A7 /* OrderAcceptedViewController.swift */,
 				6DEDD0892DB8D7FC0092E9A7 /* ProductDetailView.swift */,
+				863CB2512DC62A4A00D1A8E2 /* MainTabViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				6DEDD0982DB8D7FC0092E9A7 /* UIView+Extension.swift in Sources */,
 				6DEDD0992DB8D7FC0092E9A7 /* ProductModel.swift in Sources */,
 				6DEDD09A2DB8D7FC0092E9A7 /* CartCell.swift in Sources */,
+				863CB2522DC62A4A00D1A8E2 /* MainTabViewController.swift in Sources */,
 				6DEDD09B2DB8D7FC0092E9A7 /* ExploreCell.swift in Sources */,
 				6DEDD09C2DB8D7FC0092E9A7 /* FavoriteCell.swift in Sources */,
 				6DEDD09D2DB8D7FC0092E9A7 /* ProductCell.swift in Sources */,

@@ -36,18 +36,36 @@ class OrderAcceptedViewController: UIViewController {
     }
     
     // MARK: - IBActions
+//    @IBAction func goToExploreTapped(_ sender: UIButton) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        if let exploreVC = storyboard.instantiateViewController(withIdentifier: "ExploreViewController") as? ExploreViewController {
+//            // Check if there's a navigation controller; if not, present modally.
+//            if let navController = self.navigationController {
+//                navController.pushViewController(exploreVC, animated: true)
+//            } else {
+//                exploreVC.modalPresentationStyle = .fullScreen
+//                present(exploreVC, animated: true, completion: nil)
+//            }
+//        }
+//    }
+    
     @IBAction func goToExploreTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let exploreVC = storyboard.instantiateViewController(withIdentifier: "ExploreViewController") as? ExploreViewController {
-            // Check if there's a navigation controller; if not, present modally.
-            if let navController = self.navigationController {
-                navController.pushViewController(exploreVC, animated: true)
-            } else {
-                exploreVC.modalPresentationStyle = .fullScreen
-                present(exploreVC, animated: true, completion: nil)
-            }
+        // Safely access the app’s key window and the root view controller
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = scene.windows.first,
+           let tabBarController = window.rootViewController as? UITabBarController {
+
+            // Animate the tab switch with a flip effect
+            UIView.transition(with: tabBarController.view!,
+                              duration: 0.4,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                                  tabBarController.selectedIndex = 0
+                              },
+                              completion: nil)
         }
     }
+
     
 
 }
