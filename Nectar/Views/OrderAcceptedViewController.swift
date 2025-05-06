@@ -48,22 +48,32 @@ class OrderAcceptedViewController: UIViewController {
 //            }
 //        }
 //    }
-    
     @IBAction func goToExploreTapped(_ sender: UIButton) {
-        // Safely access the app’s key window and the root view controller
-        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = scene.windows.first,
-           let tabBarController = window.rootViewController as? UITabBarController {
-
-            // Animate the tab switch with a flip effect
-            UIView.transition(with: tabBarController.view!,
-                              duration: 0.4,
-                              options: .transitionFlipFromLeft,
-                              animations: {
-                                  tabBarController.selectedIndex = 0
-                              },
-                              completion: nil)
+      dismissAllModals {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = scene.windows.first,
+              let tabBar = window.rootViewController as? UITabBarController else {
+          return
         }
+        UIView.transition(with: tabBar.view,
+                          duration: 0.4,
+                          options: .transitionFlipFromLeft,
+                          animations: {
+                            tabBar.selectedIndex = 0
+                          },
+                          completion: nil)
+      }
+    }
+
+    
+    func dismissAllModals(completion: @escaping ()->Void) {
+      guard let root = UIApplication.shared.connectedScenes
+              .compactMap({ $0 as? UIWindowScene })
+              .first?.windows.first?.rootViewController else {
+        completion(); return
+      }
+      // dismiss any presented VCs
+      root.dismiss(animated: false, completion: completion)
     }
 
     
